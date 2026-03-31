@@ -1,0 +1,67 @@
+# ============================================================================
+# zhilicon-sdk-examples .gitignore
+# ============================================================================
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+*.so
+.venv/
+venv/
+env/
+.env
+.env.*
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Model weights and large artifacts
+*.bin
+*.pt
+*.pth
+*.onnx
+*.safetensors
+*.gguf
+*.pkl
+*.h5
+*.hdf5
+models/weights/
+checkpoints/
+
+# Zhilicon device artifacts
+*.zhi
+*.zhi_cache
+*.zhilicon_profile
+zhilicon_trace/
+.zhilicon/
+
+# Test output and results
+results/
+output/
+logs/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Credentials — never commit these
+*.pem
+*.key
+*.cert
+secrets/
+config/local/

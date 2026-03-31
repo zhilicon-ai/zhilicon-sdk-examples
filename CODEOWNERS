@@ -1,0 +1,23 @@
+# CODEOWNERS — zhilicon-sdk-examples (Class D: Public)
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default owners: SDK and ML Systems teams
+*                           @zhilicon-ai/sdk @zhilicon-ai/ml-systems
+
+# Getting-started examples: SDK team primary
+/getting-started/           @zhilicon-ai/sdk
+
+# ML workload examples: ML Systems team primary
+/vision/                    @zhilicon-ai/ml-systems @zhilicon-ai/sdk
+/nlp/                       @zhilicon-ai/ml-systems @zhilicon-ai/sdk
+/recommendation/            @zhilicon-ai/ml-systems @zhilicon-ai/sdk
+
+# Performance and multi-device: SDK team primary
+/performance/               @zhilicon-ai/sdk
+/multi-device/              @zhilicon-ai/sdk
+
+# Integration guides: SDK and Runtime teams
+/integration/               @zhilicon-ai/sdk @zhilicon-ai/runtime
+
+# Notebooks: Docs team co-reviews for quality
+/notebooks/                 @zhilicon-ai/sdk @zhilicon-ai/docs
