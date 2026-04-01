@@ -1,23 +1,43 @@
 # CODEOWNERS — zhilicon-sdk-examples (Class D: Public)
 # https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+#
+# These owners are automatically requested for review when a PR touches the
+# relevant paths. At least one owner approval is required to merge.
 
-# Default owners: SDK and ML Systems teams
+# Default: SDK and ML Systems teams cover everything not explicitly listed below
 *                           @zhilicon-ai/sdk @zhilicon-ai/ml-systems
 
-# Getting-started examples: SDK team primary
+# Governance and community files: SDK team + Docs team
+/README.md                  @zhilicon-ai/sdk @zhilicon-ai/docs
+/CONTRIBUTING.md            @zhilicon-ai/sdk @zhilicon-ai/docs
+/CODE_OF_CONDUCT.md         @zhilicon-ai/sdk @zhilicon-ai/docs
+/SECURITY.md                @zhilicon-ai/sdk @zhilicon-ai/security
+/CODEOWNERS                 @zhilicon-ai/sdk
+
+# License and legal
+/LICENSE                    @zhilicon-ai/sdk
+
+# CI/CD workflows: SDK team primary, security reviews workflow changes
+/.github/workflows/         @zhilicon-ai/sdk @zhilicon-ai/security
+/.github/ISSUE_TEMPLATE/    @zhilicon-ai/sdk @zhilicon-ai/docs
+
+# Getting-started: SDK team primary (highest visibility, must be polished)
 /getting-started/           @zhilicon-ai/sdk
 
-# ML workload examples: ML Systems team primary
+# ML workload examples: ML Systems primary, SDK co-reviews for API usage
 /vision/                    @zhilicon-ai/ml-systems @zhilicon-ai/sdk
 /nlp/                       @zhilicon-ai/ml-systems @zhilicon-ai/sdk
 /recommendation/            @zhilicon-ai/ml-systems @zhilicon-ai/sdk
 
-# Performance and multi-device: SDK team primary
+# Performance and multi-device: SDK team primary (SDK internals knowledge required)
 /performance/               @zhilicon-ai/sdk
 /multi-device/              @zhilicon-ai/sdk
 
-# Integration guides: SDK and Runtime teams
+# Integration guides: SDK and Runtime teams (cross-framework correctness)
 /integration/               @zhilicon-ai/sdk @zhilicon-ai/runtime
 
-# Notebooks: Docs team co-reviews for quality
+# Notebooks: Docs team co-reviews for presentation quality
 /notebooks/                 @zhilicon-ai/sdk @zhilicon-ai/docs
+
+# Scripts (CI validation): SDK team owns
+/scripts/                   @zhilicon-ai/sdk
