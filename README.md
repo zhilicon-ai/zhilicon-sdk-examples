@@ -1,13 +1,34 @@
-# Zhilicon SDK Examples
+<div align="center">
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/zhilicon-ai/.github/main/profile/assets/zhilicon-logo-dark.png" width="320">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/zhilicon-ai/.github/main/profile/assets/zhilicon-logo-light.png" width="320">
+  <img alt="Zhilicon" src="https://raw.githubusercontent.com/zhilicon-ai/.github/main/profile/assets/zhilicon-logo-light.png" width="320">
+</picture>
+
+# Zhilicon SDK — Examples & Demos
+
+### Runnable cross-chip integration demos and migration examples for the Zhilicon portfolio. Zero hardware required.
 
 [![CI](https://github.com/zhilicon-ai/zhilicon-sdk-examples/actions/workflows/ci.yml/badge.svg)](https://github.com/zhilicon-ai/zhilicon-sdk-examples/actions/workflows/ci.yml)
-[![Release](https://img.shields.io/github/v/release/zhilicon-ai/zhilicon-sdk-examples?include_prereleases&label=release)](https://github.com/zhilicon-ai/zhilicon-sdk-examples/releases)
-[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
-[![SDK Version](https://img.shields.io/badge/SDK-v1.x-brightgreen.svg)](https://developers.zhilicon.ai/docs/install)
-[![Python](https://img.shields.io/badge/python-3.10%20|%203.11%20|%203.12-blue.svg)](https://www.python.org)
-[![GitHub Stars](https://img.shields.io/github/stars/zhilicon-ai/zhilicon-sdk-examples?style=social)](https://github.com/zhilicon-ai/zhilicon-sdk-examples)
+[![Release](https://img.shields.io/github/v/release/zhilicon-ai/zhilicon-sdk-examples?include_prereleases&sort=semver&color=0d1117&label=release)](https://github.com/zhilicon-ai/zhilicon-sdk-examples/releases/latest)
+[![Last Commit](https://img.shields.io/github/last-commit/zhilicon-ai/zhilicon-sdk-examples?color=0d1117&label=last%20commit)](https://github.com/zhilicon-ai/zhilicon-sdk-examples/commits/main)
+[![Portfolio](https://img.shields.io/badge/Zhilicon-v0.2.0-0d1117)](https://github.com/zhilicon-ai)
 
-Get started with the Zhilicon AI Chip in minutes. This repository contains production-ready examples for computer vision, NLP, recommendation systems, and more — all designed to run immediately on the free software simulator with zero hardware required, and to scale directly to ZHI-1 silicon when you are ready for real performance numbers.
+[![Python](https://img.shields.io/badge/python-3.10_|_3.11_|_3.12-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![Runtime](https://img.shields.io/badge/LEO_demo-<1s-00C853)](demos/leo-satellite-inference)
+
+</div>
+
+---
+
+<p align="center">
+  <a href="https://github.com/zhilicon-ai"><strong>Portfolio</strong></a>&nbsp;·&nbsp;
+  <a href="https://github.com/zhilicon-ai/zhilicon-sdk"><strong>SDK</strong></a>&nbsp;·&nbsp;
+  <a href="https://github.com/zhilicon-ai/zhilicon-sdk-examples"><strong>Examples</strong></a>&nbsp;·&nbsp;
+  <a href="https://github.com/zhilicon-ai/zhilicon-developer-docs"><strong>Developer Docs</strong></a>&nbsp;·&nbsp;
+  <a href="https://github.com/zhilicon-ai/zhilicon-sdk-examples/releases"><strong>Releases</strong></a>
+</p>
 
 ---
 
@@ -16,7 +37,7 @@ Get started with the Zhilicon AI Chip in minutes. This repository contains produ
 | Path | Description | How to Get Started |
 |------|-------------|-------------------|
 | **Software Simulator** | Full functional accuracy, no hardware needed | `pip install zhilicon-sdk[simulator]` — free and immediate |
-| **Evaluation Board (ZHI-1 B0)** | Real silicon, production-grade performance | [Apply at developers.zhilicon.ai](https://developers.zhilicon.ai/access) |
+| **Evaluation Board (Zhilicon portfolio)** | Real silicon, production-grade performance | [Apply via zhilicon-ai GitHub](https://github.com/zhilicon-ai) |
 
 To run any example on the simulator, set one environment variable before running:
 
@@ -37,7 +58,7 @@ git clone https://github.com/zhilicon-ai/zhilicon-sdk-examples
 cd zhilicon-sdk-examples
 
 # Install the SDK with simulator support (free, no hardware required)
-pip install zhilicon-sdk[simulator] --index-url https://pypi.zhilicon.ai/simple/
+pip install git+https://github.com/zhilicon-ai/zhilicon-sdk.git
 
 # Run the getting-started example on the simulator
 export ZHILICON_DEVICE=simulator
@@ -49,12 +70,12 @@ python hello_inference.py
 Expected output:
 
 ```
-[zhilicon] Device: simulator  Backend: ZHI-1 functional model
+[zhilicon] Device: simulator  Backend: Zhilicon portfolio functional model
 [zhilicon] Model loaded in 210ms
 [zhilicon] Input shape: [1, 3, 224, 224]
 [zhilicon] Inference: 4.2ms (simulator timing — not representative of silicon)
 [zhilicon] Top-1: tabby cat (confidence: 0.94)
-[zhilicon] Simulator run complete. For ZHI-1 B0 throughput numbers, see zhilicon-benchmarks.
+[zhilicon] Simulator run complete. For Zhilicon portfolio throughput numbers, see zhilicon-benchmarks.
 ```
 
 ---
@@ -78,7 +99,7 @@ zhilicon-sdk-examples/
 
 ## Examples
 
-| Example | Task | Model | Throughput (ZHI-1 B0) | Notes |
+| Example | Task | Model | Throughput (Zhilicon portfolio) | Notes |
 |---------|------|-------|-----------------------|-------|
 | `getting-started/hello_inference.py` | Image classification | ResNet-50 (FP16) | ~12,000 img/s | Best starting point |
 | `getting-started/device_enum.py` | Device discovery | — | — | Lists capabilities |
@@ -92,9 +113,9 @@ zhilicon-sdk-examples/
 | `performance/throughput_sweep.py` | Profiling | Various | — | Batch/precision sweep |
 | `multi-device/pipeline_parallel.py` | Pipeline parallelism | LLaMA-3-70B | 890 tok/s | 4-chip split |
 | `integration/pytorch_bridge.py` | PyTorch interop | Any TorchScript | — | Drop-in replacement |
-| `integration/onnx_runtime.py` | ONNX Runtime EP | Any ONNX model | — | ZHI-1 execution provider |
+| `integration/onnx_runtime.py` | ONNX Runtime EP | Any ONNX model | — | Zhilicon portfolio execution provider |
 
-Throughput figures are from published ZHI-1 B0 results. Simulator results will differ. See [zhilicon-benchmarks](https://github.com/zhilicon-ai/zhilicon-benchmarks) for full methodology.
+Throughput figures are from published Zhilicon portfolio results. Simulator results will differ. See [zhilicon-benchmarks](https://github.com/zhilicon-ai/zhilicon-benchmarks) for full methodology.
 
 ---
 
@@ -105,7 +126,7 @@ Throughput figures are from published ZHI-1 B0 results. Simulator results will d
 | 1.0.x | Yes | Yes | Yes | Yes | Simulator only |
 | 1.1.x | Yes | Yes | Yes | Yes | Simulator only |
 
-Hardware (ZHI-1 B0) requires Linux x86-64 with PCIe. The simulator runs on Linux and macOS.
+Hardware (Zhilicon portfolio) requires Linux x86-64 with PCIe. The simulator runs on Linux and macOS.
 
 ---
 
@@ -126,9 +147,9 @@ Quick reference for new contributors: look for issues tagged [`good first issue`
 
 | Channel | Link |
 |---------|------|
-| Developer Forum | [developers.zhilicon.ai/forum](https://developers.zhilicon.ai/forum) |
+| Developer Forum | [GitHub Discussions](https://github.com/zhilicon-ai/zhilicon-sdk/discussions) |
 | Discord | [discord.gg/zhilicon](https://discord.gg/zhilicon) |
-| Stack Overflow | Tag: [`zhilicon`](https://stackoverflow.com/questions/tagged/zhilicon) |
+| Stack Overflow | Tag: [`zhilicon`](https://github.com/zhilicon-ai/zhilicon-sdk/discussions) |
 | GitHub Discussions | [Discussions tab](https://github.com/zhilicon-ai/zhilicon-sdk-examples/discussions) |
 
 ---
