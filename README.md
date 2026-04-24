@@ -1,6 +1,7 @@
 # Zhilicon SDK Examples
 
 [![CI](https://github.com/zhilicon-ai/zhilicon-sdk-examples/actions/workflows/ci.yml/badge.svg)](https://github.com/zhilicon-ai/zhilicon-sdk-examples/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/zhilicon-ai/zhilicon-sdk-examples?include_prereleases&label=release)](https://github.com/zhilicon-ai/zhilicon-sdk-examples/releases)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 [![SDK Version](https://img.shields.io/badge/SDK-v1.x-brightgreen.svg)](https://developers.zhilicon.ai/docs/install)
 [![Python](https://img.shields.io/badge/python-3.10%20|%203.11%20|%203.12-blue.svg)](https://www.python.org)
