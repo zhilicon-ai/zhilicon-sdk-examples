@@ -16,7 +16,7 @@
 [![Portfolio](https://img.shields.io/badge/Zhilicon-v0.2.0-0d1117)](https://github.com/zhilicon-ai)
 
 [![Python](https://img.shields.io/badge/python-3.10_|_3.11_|_3.12-3776AB?logo=python&logoColor=white)](https://www.python.org/)
-[![Runtime](https://img.shields.io/badge/LEO_demo-<1s-00C853)](demos/leo-satellite-inference)
+[![Runtime](https://img.shields.io/badge/LEO_demo-sub--second-00C853)](demos/leo-satellite-inference)
 
 </div>
 
@@ -24,7 +24,7 @@
 
 <p align="center">
   <a href="https://github.com/zhilicon-ai"><strong>Portfolio</strong></a>&nbsp;·&nbsp;
-  <a href="https://github.com/zhilicon-ai/zhilicon-sdk"><strong>SDK</strong></a>&nbsp;·&nbsp;
+  <a href="https://github.com/zhilicon-ai/zhilicon-sdk"><strong>SDK</strong></a><sup>🔒</sup>&nbsp;·&nbsp;
   <a href="https://github.com/zhilicon-ai/zhilicon-sdk-examples"><strong>Examples</strong></a>&nbsp;·&nbsp;
   <a href="https://github.com/zhilicon-ai/zhilicon-developer-docs"><strong>Developer Docs</strong></a>&nbsp;·&nbsp;
   <a href="https://github.com/zhilicon-ai/zhilicon-sdk-examples/releases"><strong>Releases</strong></a>
