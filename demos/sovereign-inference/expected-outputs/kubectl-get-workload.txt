@@ -1,0 +1,16 @@
+$ kubectl -n bank-a get zhiliconworkload
+
+NAME                POOL           PHASE     DEVICES   AGE
+ecdsa-batch-0001    sentinel-uae   Running   4         1m24s
+
+$ kubectl -n bank-a describe zhiliconworkload ecdsa-batch-0001
+...
+Status:
+  Phase:                   Running
+  Allocated Devices:       4
+  Attestation Proof Ref:   0x1a2b3c4d5e6f7890
+  Started At:              2026-04-17T16:45:12Z
+  Conditions:
+    Type:     PhaseTransition
+    Status:   True
+    Reason:   PodCreated

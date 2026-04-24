@@ -1,0 +1,4 @@
+$ kubectl get devicepool
+
+NAME           CHIP          AVAILABLE   TOTAL   ZONE          AGE
+sentinel-uae   sentinel-1    8           8       uae-fintech   3m10s

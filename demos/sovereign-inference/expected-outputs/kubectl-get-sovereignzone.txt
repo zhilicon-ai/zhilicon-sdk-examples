@@ -1,0 +1,4 @@
+$ kubectl get sovereignzone
+
+NAME          JURISDICTION   POOLS   WORKLOADS   AGE
+uae-fintech   ae             1       1           3m12s

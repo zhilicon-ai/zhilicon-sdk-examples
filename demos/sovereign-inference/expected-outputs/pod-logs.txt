@@ -1,0 +1,5 @@
+$ kubectl -n bank-a logs pod/ecdsa-batch-0001-zhilicon
+
+[startup] attested in zone=uae-fintech jurisdiction=ae
+[startup] proof reference: 0x1a2b3c4d5e6f7890
+[done] signed 4096 messages in 3.741s (1095 sig/s)

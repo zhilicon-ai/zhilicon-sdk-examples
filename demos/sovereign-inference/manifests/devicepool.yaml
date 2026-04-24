@@ -1,0 +1,14 @@
+apiVersion: platform.zhilicon.io/v1alpha1
+kind: DevicePool
+metadata:
+  name: sentinel-uae
+  labels:
+    demo: sovereign-inference
+spec:
+  chipFamily: sentinel-1
+  sovereignZoneRef:
+    name: uae-fintech
+  minDevices: 4
+  nodeSelector:
+    zhilicon.io/chip-family: sentinel-1
+    zhilicon.io/region: ae

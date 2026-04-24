@@ -1,0 +1,17 @@
+apiVersion: platform.zhilicon.io/v1alpha1
+kind: SovereignZone
+metadata:
+  name: uae-fintech
+  labels:
+    demo: sovereign-inference
+    jurisdiction: ae
+spec:
+  jurisdiction: ae
+  encryption:
+    - aes-256-gcm
+    - kyber-1024-hybrid
+  attestationEndpoint: https://zhilicon-zhilicon-operator-attestation.zhilicon-system.svc.cluster.local:8443
+  keyCustodian: uae-cba-ca
+  dataResidencyPolicy: fintech-ae-cbuae
+  allowedChipFamilies:
+    - sentinel-1

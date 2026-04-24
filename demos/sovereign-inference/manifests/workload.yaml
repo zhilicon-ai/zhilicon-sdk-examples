@@ -1,0 +1,79 @@
+apiVersion: platform.zhilicon.io/v1alpha1
+kind: ZhiliconWorkload
+metadata:
+  name: ecdsa-batch-0001
+  namespace: bank-a
+  labels:
+    demo: sovereign-inference
+spec:
+  poolRef:
+    name: sentinel-uae
+  devices: 4
+  attestationRequired: true
+  priority: 200
+  maxRuntime: 2h
+  template:
+    metadata:
+      labels:
+        app: ecdsa-batch
+        app.kubernetes.io/part-of: zhilicon-demo
+    spec:
+      restartPolicy: Never
+      serviceAccountName: default
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 65532
+        runAsGroup: 65532
+        fsGroup: 65532
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: app
+          # For the demo we use a lightweight Python image that calls the
+          # Zhilicon SDK against the attested devices. Real customers swap
+          # in their production signing image.
+          image: python:3.11-slim
+          command:
+            - /bin/sh
+            - -c
+            - |
+              set -euo pipefail
+              pip install --no-cache-dir cryptography==42.0.5 >/dev/null
+              python - <<'PY'
+              import os, sys, time
+              from cryptography.hazmat.primitives.asymmetric import ec
+              from cryptography.hazmat.primitives import hashes, serialization
+
+              zone   = os.environ.get("ZHILICON_SOVEREIGN_ZONE", "<unset>")
+              juris  = os.environ.get("ZHILICON_JURISDICTION", "<unset>")
+              proof  = os.environ.get("ZHILICON_ATTESTATION_PROOF_REF", "<unset>")
+              print(f"[startup] attested in zone={zone} jurisdiction={juris}")
+              print(f"[startup] proof reference: {proof}")
+
+              # Batch-sign 4096 messages with a fresh ECDSA P-256 key — stand-in
+              # for the real Sentinel-1 ECDSA engine that a production build
+              # calls into. Demonstrates end-to-end data flow; perf is not the
+              # point.
+              key = ec.generate_private_key(ec.SECP256R1())
+              t0 = time.monotonic()
+              for i in range(4096):
+                  msg = f"bank-a/txn/{i:06d}".encode()
+                  key.sign(msg, ec.ECDSA(hashes.SHA256()))
+              dt = time.monotonic() - t0
+              print(f"[done] signed 4096 messages in {dt:.3f}s "
+                    f"({4096/dt:.0f} sig/s)")
+              PY
+          resources:
+            requests:
+              cpu: 500m
+              memory: 512Mi
+            limits:
+              cpu: "1"
+              memory: 1Gi
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: false
+            runAsNonRoot: true
+            runAsUser: 65532
+            capabilities:
+              drop: [ALL]

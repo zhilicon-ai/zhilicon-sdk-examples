@@ -1,0 +1,8 @@
+$ zhctl --attestation-endpoint https://zhilicon-zhilicon-operator-attestation.zhilicon-system.svc.cluster.local:8443 \
+        attest zone-info
+
+{
+  "jurisdiction": "ae",
+  "policy_sha256": "00000000000000000000000000000000000000000000000000000000000000",
+  "authority_pubkey_b64": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+}
