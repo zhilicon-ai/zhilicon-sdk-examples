@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Repository validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Required files present
+        run: |
+          set -e
+          for f in README.md LICENSE CHANGELOG.md VERSION; do
+            test -f "$f" || { echo "::error::missing $f"; exit 1; }
+          done
+          echo "✓ all required files present"
+
+      - name: Markdown lint (non-blocking)
+        uses: DavidAnson/markdownlint-cli2-action@v18
+        continue-on-error: true
+        with:
+          globs: "**/*.md"
+
+  python-syntax:
+    name: Python syntax check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: py_compile every .py file
+        run: |
+          set -e
+          files=$(find . -name "*.py" -not -path "./.git/*" -not -path "./.venv/*" -not -path "*/__pycache__/*")
+          if [ -z "$files" ]; then
+            echo "no python files to compile"
+            exit 0
+          fi
+          echo "$files" | xargs python -m py_compile
+          echo "✓ all python files compile"
